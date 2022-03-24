@@ -1,0 +1,14 @@
+h3 {font-style:italic}
+p {font-size:10pt; font-weight: bold;}
+strong {font-style:italic; text-decoration:underline;}
+#a {font-size: 8pt;}
+#b {color: aqua;}
+
+.red1 {color: red; font-style: italic;}
+strong.red1 {font-size: 12pt;}
+#next {color: blue; text-align: center;}
+
+a:link {color: blueviolet;}
+a:visited {color: green;}
+h3:before {content: "😉"; color: blueviolet;}
+h3:after {content: "(👍sblim)"; font-size: 10pt;}
