@@ -1,0 +1,5 @@
+#w3c_static {position: static;}
+#h5_static {position: static; top: 100px; left: 300px;}
+#css_relative {position: relative; left: 80px;}
+#h5_absolute {position: absolute; top: 205px; left: 100px;}
+#css_fixed {position: fixed; top: 20px; right: 30px;}
