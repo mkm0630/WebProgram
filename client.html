@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GET 요청 및 응답 확인</title>
+        <script>
+            function sendGetRequest() {
+                // XMLHttpRequest(): 서버로 요청을 보내고 응답 받음
+                // 비동기적 요청(요청 보내진 후에도 중단되지 않고 계속 실행)
+                var xhr = new XMLHttpRequest();
+                
+                // open 메서드를 사용해 요청 타입,URL,비동기여부 설정
+                xhr.open('GET', 'server.php', true);
+                
+                // 요청이 완료되면 실행될 콜백함수 정의
+                // 콜백 함수 : 다른 함수의 매개변수로 전달되어, 그 함수가 완료된 후에 호출되는 함수
+                xhr.onload = function() {
+                    // HTTP 상태 코드의 성공 범위(200~299)
+                    if(xhr.status >= 200 && xhr.status < 300) {
+                        // 서버에서 받은 JSON 형식의 응답을 jsp객체로 변환
+                        var response = JSON.parse(xhr.responseText);
+                        // 서버에서 받은 응답 메시지를 HTML요소에 표시
+                        document.getElementById('response').innerText = response.message;
+                    } else {
+                        console.error('GET 요청 실패: ', xhr.statusText);
+                    }
+                };
+
+                // 요청이 실패한 경우의 콜백함수 정의
+                xhr.onerror = function() {
+                    console.error('네트워크 오류 발생');
+                };
+
+                // 설정한 요청 서버에 전송
+                xhr.send();
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="sendGetRequest()">GET 요청 보내기</button>
+        <div id="response"></div>
+    </body>
+</html>
